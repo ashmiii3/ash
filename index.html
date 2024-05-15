@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Move Button with JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0e5e5; /* Pastel color */
+    }
+    #question {
+      position: absolute;
+      left: 260px;
+      top: 175px;
+      color: #6a4b4b; /* Dark pastel pink */
+    }
+    #message {
+      position: absolute;
+      left: 220px;
+      top: 270px;
+      color: #6a4b4b; /* Dark pastel pink */
+      font-size: 23px; /* Increased font size */
+      font-weight: bold; /* Making text bold */
+    }
+    #yes, #no {
+      position: absolute;
+      width: 60px;
+      height: 30px;
+      background-color: #a3d2ca; /* Pastel blue */
+      border: 1px solid #6a4b4b; /* Dark pastel pink */
+      border-radius: 5px;
+      text-align: center;
+      line-height: 30px;
+      cursor: pointer;
+      color: #6a4b4b; /* Dark pastel pink */
+    }
+  </style>
+</head>
+<body>
+  <h1 id="question">Ashmi sabse achhi hai na?</h1>
+  <div id="yes" style="left: 285px; top: 235px;" onclick="sayYes()">Yes</div>
+  <div id="no" style="left: 360px; top: 235px;" onmouseover="moveNo()" onclick="sayNo()">No</div>
+  <div id="message">Arre, sach bhi boldo</div>
+
+  <script>
+    function moveNo() {
+      var noButton = document.getElementById('no');
+      var bodyWidth = document.body.clientWidth || document.documentElement.clientWidth;
+      var bodyHeight = document.body.clientHeight || document.documentElement.clientHeight;
+      var randomTop = Math.floor(Math.random() * (bodyHeight - 30));
+      var randomLeft = Math.floor(Math.random() * (bodyWidth - 60));
+      
+      noButton.style.top = randomTop + 'px';
+      noButton.style.left = randomLeft + 'px';
+    }
+
+    function sayYes() {
+      document.getElementById('message').innerText = "Thank you! Mujhe pata hi tha <3";
+      document.getElementById('message').style.display = 'block';
+    }
+
+    function sayNo() {
+      document.getElementById('message').innerText = "Arre, sach bhi boldo";
+      document.getElementById('message').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
